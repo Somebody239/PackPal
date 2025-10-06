@@ -1,15 +1,14 @@
-# 🎒 PackPal — Your Smart Packing Assistant
+# 🎒 PackPal: Your Smart Packing Assistant
 
-PackPal is an intelligent iOS app that helps travelers pack smarter, faster, and stress-free.
-Using on-device AI, PackPal generates personalized packing lists based on trip details, activities, and weather — all while keeping your data private.
+PackPal is an intelligent iOS app that helps travelers pack smarter, faster, and stress-free. Using on-device AI, it generates personalized packing lists based on trip details, activities, and weather, all while keeping your data private.
 
 ## ✨ Features
 
-- 🧳 **AI-Powered Packing Lists**: Personalized based on your trip duration, destination, and activities.
-- 🌤️ **Smart Context Awareness**: Automatically adjusts for weather conditions.
-- 🔒 **On-Device Privacy**: Built with Core ML — no cloud or account required.
-- 🧠 **Natural Language Input**: Type "4-day ski trip in Alberta" and PackPal knows exactly what to include.
-- 📱 **Modern Design**: Clean, intuitive UIKit interface with consistent color themes.
+- **AI-Powered Packing Lists**: Personalized based on trip duration, destination, and activities.
+- **Smart Context Awareness**: Automatically adjusts for weather and conditions.
+- **On-Device Privacy**: Built with Core ML to keep all data local.
+- **Natural Language Input**: Type phrases like "4-day ski trip in Alberta" and PackPal knows what to include.
+- **Modern Design**: Clean, intuitive UIKit interface with consistent color themes.
 
 ## 🛠️ Built With
 
@@ -21,53 +20,45 @@ Using on-device AI, PackPal generates personalized packing lists based on trip d
 | Platform | iOS |
 | Tools | Xcode, Core ML Tools |
 
+## 🧩 Tech Architecture
+
+PackPal follows an MVC architecture with a modular service layer for AI and data handling. UIKit manages all interface components, while Core ML powers the AI logic for generating packing recommendations. The design system maintains consistent color, layout, and typography across the app.
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - macOS with Xcode 15 or later
-- iOS 17+ Simulator or Device
+- iOS 17+ simulator or physical device
 
 ### Steps to Run
 
-1. Clone the repository
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Somebody239/PackPal.git
    cd PackPal
    ```
 
-2. Download the AI model (required for AI features)
+2. **Download the AI model:**
    ```bash
-   # Option 1: Use the download script (recommended)
    ./download_model.sh
-   
-   # Option 2: Manual download
-   # Download from Apple's Core ML models:
-   # https://ml-assets.apple.com/coreml/models/Text/QuestionAnswering/BERT_SQUAD/BERTSQUADFP16.mlmodel
-   # Rename the downloaded file to: MobileBERT.mlmodel
-   # Place it in: PackPal3/AI/MobileBERT.mlmodel
    ```
-
-3. Add your API keys
-   ```bash
-   # Edit PackPal3/AI/HuggingFaceService.swift
-   # Replace "YOUR_HUGGING_FACE_API_TOKEN_HERE" with your Hugging Face API token
    
-   # Edit PackPal3/Utilities/WeatherService.swift  
-   # Replace "YOUR_OPENWEATHER_API_KEY_HERE" with your OpenWeather API key
-   # Get free API key at: https://openweathermap.org/api
-   ```
+   or manually download from [Apple Core ML Models](https://ml-assets.apple.com/coreml/models/Text/QuestionAnswering/BERT_SQUAD/BERTSQUADFP16.mlmodel), rename it `MobileBERT.mlmodel`, and place it in `PackPal3/AI/`.
 
-4. Open the project in Xcode
+3. **Add your API keys:**
+   - In `AI/HuggingFaceService.swift`: Replace `"YOUR_HUGGING_FACE_API_TOKEN_HERE"`.
+   - In `Utilities/WeatherService.swift`: Replace `"YOUR_OPENWEATHER_API_KEY_HERE"`.
+   - Get a free key from [OpenWeather](https://openweathermap.org/api).
+
+4. **Open the project in Xcode:**
    ```bash
    open PackPal3.xcodeproj
    ```
 
-5. Build and run on a simulator or a connected device (⌘ + R)
+5. **Build and run on a simulator or device with ⌘ + R.**
 
-That's it! You can test the full app experience directly from Xcode.
-
-## 🧩 Project Structure
+## 📁 Project Structure
 
 ```
 PackPal3/
@@ -103,24 +94,27 @@ PackPal3/
 
 ## 📘 Try It Out
 
-If you don't have Xcode installed, you can still view the code or UI layout on GitHub.
-For a full run, open it in Xcode and press Run (⌘ + R) — no additional setup required.
+If you don't have Xcode installed, you can still browse the code and interface layouts on GitHub.
+For a full experience, open the project in Xcode and press Run (⌘ + R) to launch it instantly.
 
 ## 📈 Future Improvements
 
-- Multi-trip support and user profiles
-- Cross-device syncing via iCloud
-- Expanded AI model for packing optimization
-- Companion Apple Watch app
+- Multi-trip management and user profiles
+- Cross-device syncing with iCloud
+- Expanded AI model for improved packing suggestions
+- Apple Watch companion app
 
 ## 💡 Inspiration
 
-PackPal was built for travelers who want peace of mind before every trip.
-We all know that "Did I forget something?" moment — PackPal ensures you never have to feel it again.
+PackPal was inspired by the stress of last-minute travel packing. That "Did I forget something?" feeling can ruin the start of a trip. PackPal was built to make sure travelers can leave with peace of mind, every time.
 
-## 👥 Team
+## 🌍 Impact
 
-Created by Kishan Joshi as part of PackPal3 development.
+PackPal helps travelers pack efficiently and avoid forgetting essentials, reducing overpacking and waste. By encouraging smarter travel habits, it supports more sustainable and organized travel experiences.
+
+## 👤 Team
+
+Developed by Kishan Joshi for the LUMA Startathon 2025.
 
 ## 📄 License
 
@@ -128,6 +122,6 @@ This project is licensed under the MIT License.
 
 ---
 
-### ✅ Optional Note for Devpost:
+### ✅ Optional note for Devpost:
 
-"If you'd like to try PackPal yourself, simply clone the repository and open it in Xcode. The app runs locally and does not require any external setup."
+"If you'd like to try PackPal yourself, simply clone the repository and open it in Xcode. The app runs locally and requires no additional setup."

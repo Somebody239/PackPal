@@ -32,16 +32,34 @@ Using on-device AI, PackPal generates personalized packing lists based on trip d
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/PackPal.git
+   git clone https://github.com/Somebody239/PackPal.git
    cd PackPal
    ```
 
-2. Open the project in Xcode
+2. Download the AI model (required for AI features)
+   ```bash
+   # Option 1: Use the download script (recommended)
+   ./download_model.sh
+   
+   # Option 2: Manual download
+   # Download from Apple's Core ML models:
+   # https://ml-assets.apple.com/coreml/models/Text/QuestionAnswering/BERT_SQUAD/BERTSQUADFP16.mlmodel
+   # Rename the downloaded file to: MobileBERT.mlmodel
+   # Place it in: PackPal3/AI/MobileBERT.mlmodel
+   ```
+
+3. Add your Hugging Face API token
+   ```bash
+   # Edit PackPal3/AI/HuggingFaceService.swift
+   # Replace "YOUR_HUGGING_FACE_API_TOKEN_HERE" with your actual token
+   ```
+
+4. Open the project in Xcode
    ```bash
    open PackPal3.xcodeproj
    ```
 
-3. Build and run on a simulator or a connected device (⌘ + R)
+5. Build and run on a simulator or a connected device (⌘ + R)
 
 That's it! You can test the full app experience directly from Xcode.
 

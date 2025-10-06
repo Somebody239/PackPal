@@ -48,10 +48,14 @@ Using on-device AI, PackPal generates personalized packing lists based on trip d
    # Place it in: PackPal3/AI/MobileBERT.mlmodel
    ```
 
-3. Add your Hugging Face API token
+3. Add your API keys
    ```bash
    # Edit PackPal3/AI/HuggingFaceService.swift
-   # Replace "YOUR_HUGGING_FACE_API_TOKEN_HERE" with your actual token
+   # Replace "YOUR_HUGGING_FACE_API_TOKEN_HERE" with your Hugging Face API token
+   
+   # Edit PackPal3/Utilities/WeatherService.swift  
+   # Replace "YOUR_OPENWEATHER_API_KEY_HERE" with your OpenWeather API key
+   # Get free API key at: https://openweathermap.org/api
    ```
 
 4. Open the project in Xcode

@@ -71,7 +71,7 @@ class WeatherService {
     
     // MARK: - Constants
     
-    private static let API_KEY = "9cfef7aeb892cf5e13d3ed85eb4f6adb"
+    private static let API_KEY = "YOUR_OPENWEATHER_API_KEY_HERE"
     private static let GEOCODING_URL = "https://api.openweathermap.org/geo/1.0/direct"
     private static let WEATHER_URL = "https://api.openweathermap.org/data/3.0/onecall"
     
@@ -128,6 +128,13 @@ class WeatherService {
     
     /// Step 1: Convert city name to coordinates
     private static func geocodeCity(_ city: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
+        // Check if API key is configured
+        guard API_KEY != "YOUR_OPENWEATHER_API_KEY_HERE" else {
+            print("⚠️ OpenWeather API key not configured. Please add your API key to WeatherService.swift")
+            completion(nil)
+            return
+        }
+        
         let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? city
         let urlString = "\(GEOCODING_URL)?q=\(cityEncoded)&limit=1&appid=\(API_KEY)"
         
@@ -175,6 +182,13 @@ class WeatherService {
     
     /// Step 2: Fetch weather data using coordinates
     private static func fetchWeather(lat: Double, lon: Double, completion: @escaping (WeatherSummary) -> Void) {
+        // Check if API key is configured
+        guard API_KEY != "YOUR_OPENWEATHER_API_KEY_HERE" else {
+            print("⚠️ OpenWeather API key not configured. Please add your API key to WeatherService.swift")
+            completion(WeatherSummary(icon: "questionmark", description: "Weather data unavailable - API key not configured"))
+            return
+        }
+        
         let usesMetric = SettingsManager.temperatureUnit == "c"
         let unitsParam = usesMetric ? "metric" : "imperial"
         let urlString = "\(WEATHER_URL)?lat=\(lat)&lon=\(lon)&appid=\(API_KEY)&units=\(unitsParam)"

@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  PackPal3
+//  PackPal2
 //
-//  Created by Kishan Joshi on 2025-10-05.
+//  Created by Kishan Joshi on 2025-09-30.
 //
 
 import UIKit
